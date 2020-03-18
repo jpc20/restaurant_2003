@@ -48,6 +48,7 @@ class RestaurantTest < Minitest::Test
     assert_equal ['Burrata', 'Pizzetta', 'Ravioli'], restaurant.dishes
   end
 
+  # Iteration 3 Tests:
   def test_open_for_lunch?
     restaurant1 = Restaurant.new('10:00', 'Fuel Cafe')
     restaurant2 = Restaurant.new('16:00', 'Il Poggio')
@@ -68,6 +69,15 @@ class RestaurantTest < Minitest::Test
 
     assert_equal ["BURRATA", "PIZZETTA", "RAVIOLI"], restaurant1.menu_dish_names
     assert_equal ["PASTA", "BURRITO", "BURGER"], restaurant2.menu_dish_names
+  end
+
+  # Iteration 4 Test:
+  def test_announce_closing_time
+    restaurant1 = Restaurant.new('6:00', 'Fuel Cafe')
+    restaurant2 = Restaurant.new('16:00', 'Il Poggio')
+
+    assert_equal "Fuel Cafe will be closing at 11:00AM", restaurant1.announce_closing_time(5)
+    assert_equal "Il Poggio will be closing at 11:00PM", restaurant2.announce_closing_time(7)
   end
 
 

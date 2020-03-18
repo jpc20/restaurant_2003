@@ -26,4 +26,15 @@ class Restaurant
     end
   end
 
+  def announce_closing_time(hours)
+    closing = ''
+    if @opening_time.to_i + hours < 13
+      closing = (@opening_time.to_i + hours).to_s.concat(':00AM')
+    elsif @opening_time.to_i + hours >= 13
+      closing = ((@opening_time.to_i + hours) - 12).to_s.concat(':00PM')
+    end
+
+    return "#{@name} will be closing at #{closing}"
+  end
+
 end
